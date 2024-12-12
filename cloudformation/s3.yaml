@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: "CloudFormation template to create an S3 bucket for data, logs, and scripts."
+
+Resources:
+  # S3 Bucket for data/logs/scripts
+  AnalyticsS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "data-platform-bucket-${AWS::AccountId}"
+      VersioningConfiguration:
+        Status: Enabled
+
+Outputs:
+  S3BucketName:
+    Description: "The name of the S3 bucket for data and logs"
+    Value: !Ref AnalyticsS3Bucket
+    Export:
+      Name: !Sub "S3BucketNameExport"

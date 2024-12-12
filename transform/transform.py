@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col
+from pyspark.sql.functions import col, when
 
 # Initialize Spark session
 spark = SparkSession.builder.appName("BatchTransform").getOrCreate()
